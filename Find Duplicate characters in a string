@@ -1,0 +1,23 @@
+void fun(srting str)
+{
+    map<char,int> count;
+    int n = str.length();
+    for(int i=0; i<n; i++)
+    {
+        map[str[i]]++;
+    }
+    
+    for(auto it : count)
+    {
+        if(it.second > 1)
+        {
+            cout<<it.first<<" --> "<<it.second<<endl;
+        }
+    }
+}
+
+***************************************
+Time Complexity: O(N log N), where N = length of the string passed and it generally takes logN time for an element insertion in a map.
+
+Space Complexity: O(K), where K = size of the map (0<=K<=input_string_length).
+
