@@ -1,1 +1,62 @@
-1
+ string longestPalin (string s) {
+        int n = s.length();
+        int l, r;
+        int len = 0;
+        int maxlen = 0;
+        int longStart = 0;
+        
+        //For Even length string
+        for(int i=0; i<n; i++)
+        {
+            l=i;
+            r=i+1;
+            while(l>=0 && r<n)
+            {
+                if(s[l]==s[r])
+                {
+                    l--;
+                    r++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            len = r-l-1;
+            if(maxlen < len){
+                maxlen = len;
+                longStart = l+1;
+            }
+        }
+       
+       //For odd length string
+        for(int i=0; i<n; i++)
+        {
+            l=i;
+            r=i;
+            while(l>=0 && r<n)
+            {
+                if(s[l]==s[r])
+                {
+                    l--;
+                    r++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            len = r-l-1;
+            if(maxlen < len){
+                maxlen = len;
+                longStart = l+1;
+            }
+        }
+        string longpalstring = s.substr(longStart, maxlen);
+        return longpalstring;
+    }
+    
+    ********************
+    TC = O(N)
+    SC = O(1)
+    ********************
