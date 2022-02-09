@@ -1,0 +1,27 @@
+  void permute(string &s, int l, int r, vector<string> &str)
+	    {
+		    if(l==r)
+		    {
+		        str.push_back(s);
+		        return;
+		    }
+		    for(int i=l; i<=r; i++)
+		    {
+		        swap(s[l], s[i]);
+		        permute(s, l+1, r, str);
+		        swap(s[l], s[i]);
+		    }
+	    }
+		vector<string>find_permutation(string s)
+		{
+		    vector<string> str;
+		    int l=0, r=s.length()-1;
+		    permute(s, l, r, str);
+		    sort(str.begin(),str.end());
+		    return str;
+		}
+    
+    **************************
+    TC = o(n * n!)
+    auxillary SC = o(n-1)
+    **************************
